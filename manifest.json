@@ -1,6 +1,6 @@
 {
   "name": "AWS Menu",
-  "version": "0.0.7",
+  "version": "0.0.11",
   "description": "AWS Menu",
   "manifest_version": 2,
   "background":{
@@ -17,6 +17,7 @@
       ],
       "js": [
         "jquery.js",
+        "waitForKeyElements.js",
         "menu.js"
       ]
     }
