@@ -1,5 +1,9 @@
 var replaceMenus = {
     "Certificate Manager": "ACM",
+    "API Gateway": "APIGW",
+    "Amazon EventBridge": "Events",
+    "Amazon Simple Email Service": "SES",
+    "Console Home": "Home",
     "Elastic Beanstalk": "EB",
     "Route 53": "53",
     "Data Pipeline": "Pipeline",
@@ -22,9 +26,9 @@ var replaceMenus = {
     "Trusted Advisor": "TrAdv"
 };
 
-($("ol[data-rbd-droppable-id*='global-nav-favorites-bar-list-edit-mode']").find('li')[0]).each(function () {
-    var label = $($($(this)[0]).find("a")[0]).find(".service-label")[0];
-    var text = (label.innerText);
+$("ol[data-rbd-droppable-id*='global-nav-favorites-bar-list-edit-mode']").find('li').each(function () {
+    var label = $(this).find("span")[0];
+    var text = label.innerText
     console.log("checking : " + text);
     for (var m in replaceMenus) {
         if (text == m) {
