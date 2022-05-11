@@ -1,6 +1,6 @@
 {
   "name": "AWS Menu",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "AWS Menu",
   "manifest_version": 3,
   "background": {
@@ -29,7 +29,6 @@
     "activeTab",
     "scripting",
     "alarms",
-    "runtime",
     "notifications",
     "storage"
   ],
