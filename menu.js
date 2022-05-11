@@ -23,8 +23,12 @@ var replaceMenus = {
     "Security Hub": "SecHub",
     "GuardDuty": "GDuty",
     "Simple Email Service": "SES",
-    "Trusted Advisor": "TrAdv"
+    "Trusted Advisor": "TrAdv",
+    "AWS Glue": "Glue",
+    "Key Management Service": "KMS"
 };
+
+console.log("Here")
 
 $("ol[data-rbd-droppable-id*='global-nav-favorites-bar-list-edit-mode']").find('li').each(function () {
     var label = $(this).find("span")[0];

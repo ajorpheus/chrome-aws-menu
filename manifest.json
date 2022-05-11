@@ -1,10 +1,10 @@
 {
   "name": "AWS Menu",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "AWS Menu",
-  "manifest_version": 2,
-  "background":{
-    "scripts":["background.js"]
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
@@ -22,10 +22,16 @@
       ]
     }
   ],
-  "browser_action": {
+  "action": {
     "default_icon": "icon.png"
   },
   "permissions": [
+    "activeTab",
+    "scripting",
+    "alarms",
+    "runtime",
+    "notifications",
+    "storage"
   ],
   "icons": {
     "16": "app16.png",
