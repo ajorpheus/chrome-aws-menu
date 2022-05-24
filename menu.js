@@ -25,19 +25,23 @@ var replaceMenus = {
     "Simple Email Service": "SES",
     "Trusted Advisor": "TrAdv",
     "AWS Glue": "Glue",
-    "Key Management Service": "KMS"
+    "Key Management Service": "KMS",
+    "AWS Cost Explorer": "Cost"
 };
 
-console.log("Here")
+waitForKeyElements("ol[data-rbd-droppable-id*='global-nav-favorites-bar-list-edit-mode']", updateMenu, false);
 
-$("ol[data-rbd-droppable-id*='global-nav-favorites-bar-list-edit-mode']").find('li').each(function () {
-    var label = $(this).find("span")[0];
-    var text = label.innerText
-    console.log("checking : " + text);
-    for (var m in replaceMenus) {
-        if (text == m) {
-            console.log("Found: " + text);
-            label.innerText = replaceMenus[m];
+function updateMenu(){
+    console.log("Updating the menu");
+    $("ol[data-rbd-droppable-id*='global-nav-favorites-bar-list-edit-mode']").find('li').each(function () {
+        var label = $(this).find("span")[0];
+        var text = label.innerText
+        console.log("checking : " + text);
+        for (var m in replaceMenus) {
+            if (text == m) {
+                console.log("Found: " + text);
+                label.innerText = replaceMenus[m];
+            }
         }
-    }
-});
+    });
+}
