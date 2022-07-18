@@ -26,6 +26,7 @@ var replaceMenus = {
     "Trusted Advisor": "TrAdv",
     "AWS Glue": "Glue",
     "Key Management Service": "KMS",
+    "DynamoDB": "DDB",
     "AWS Cost Explorer": "Cost"
 };
 
@@ -33,15 +34,28 @@ waitForKeyElements("ol[data-rbd-droppable-id*='global-nav-favorites-bar-list-edi
 
 function updateMenu(){
     console.log("Updating the menu");
+    var replaced = [];
+    var notFound = [];
     $("ol[data-rbd-droppable-id*='global-nav-favorites-bar-list-edit-mode']").find('li').each(function () {
-        var label = $(this).find("span")[0];
-        var text = label.innerText
-        console.log("checking : " + text);
+        var label = $(this).find("span");
+        var text = label.text();
+
+        var found = false;
         for (var m in replaceMenus) {
             if (text == m) {
-                console.log("Found: " + text);
-                label.innerText = replaceMenus[m];
+                found = true;
+                var replaceWith=replaceMenus[m];
+                replaced.push(`\t\t ${text} --> ${replaceWith}`);
+                label.text(replaceWith);
+                break;
             }
         }
+
+        if (!found){
+            notFound.push( text );
+        }
     });
+
+    console.log( `Replaced following :\n${replaced.join("\n")}` ) ;
+    console.log( `nothing  found for :\n${notFound.join("\n")}` ) ;
 }
