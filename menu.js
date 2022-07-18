@@ -58,4 +58,17 @@ function updateMenu(){
 
     console.log( `Replaced following :\n${replaced.join("\n")}` ) ;
     console.log( `nothing  found for :\n${notFound.join("\n")}` ) ;
+
+    console.log('Sorting the menu now');
+    $('ol[data-rbd-droppable-id*="global-nav-favorites-bar-list-edit-mode"]')
+        .find('li')
+        .children('a')
+        .children('div')
+        .children('span')
+        .sortElements
+    ((a, b) => a.textContent.toLowerCase().localeCompare(b.textContent.toLowerCase()),
+        function(){
+            return this.parentNode.parentNode;
+        }
+    );
 }
